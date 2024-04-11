@@ -38,7 +38,7 @@ export async function emailVerify(id, token, navigate, dispatch) {
       id,
       token,
     });
-    console.log("response", response);
+    // console.log("response", response);
     dispatch(setAccessToken(response?.data?.data?.accessToken));
     dispatch(setRefreshToken(response?.data?.data?.refreshToken));
     dispatch(setUser(response?.data?.data?.user));

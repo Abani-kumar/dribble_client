@@ -29,13 +29,14 @@ const ProfileTwo = ({ profileDetails, setProfileDetails }) => {
 
   const getAccessToken = async () => {
     const result = await refreshAccessToken(refreshToken, dispatch);
+    // console.log(result)
     setToken(result);
   };
   useEffect(() => {
-    if (refreshToken ) {
+    if (refreshToken) {
       getAccessToken();
     }
-  }, []);
+  }, [refreshToken]);
 
   const profileUpdate = async (e) => {
     e.preventDefault();

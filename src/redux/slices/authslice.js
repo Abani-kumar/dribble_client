@@ -19,7 +19,7 @@ const authSlice = createSlice({
         },
         setRefreshToken: (state,action)=>{
             state.refreshToken=action.payload;
-            localStorage.setItem("refreshToken",JSON.stringify(action.payload))
+            localStorage.setItem("refreshToken",action.payload)
         },
         setRemoveRefreshToken: (state,action) => {
             state.refreshToken = null;
