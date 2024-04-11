@@ -32,7 +32,7 @@ const ProfileTwo = ({ profileDetails, setProfileDetails }) => {
     setToken(result);
   };
   useEffect(() => {
-    if (refreshToken && accessToken === null) {
+    if (refreshToken ) {
       getAccessToken();
     }
   }, []);
