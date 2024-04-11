@@ -38,7 +38,7 @@ const Sidebar = ({open,setSidebaropen}) => {
         <Link to='/profile'>View Profile</Link>
         </li>
         <li>
-        <Link to='/profilecreate' >Update Profile</Link>
+        <Link to='/getStarted' >Update Profile</Link>
         </li>
        </ul>
       </nav>
