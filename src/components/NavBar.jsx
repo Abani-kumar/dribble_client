@@ -118,7 +118,7 @@ const NavBar = () => {
       </div>
 
       {sidebarOpen && (
-        <Sidebar open={sidebarOpen} setSidebaropen={setSidebaropen} />
+        <Sidebar logout={logout} open={sidebarOpen} setSidebaropen={setSidebaropen} />
       )}
     </nav>
   );
