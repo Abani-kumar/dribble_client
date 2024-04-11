@@ -10,7 +10,7 @@ const Sidebar = ({open,setSidebaropen}) => {
   const { user } = useSelector((state) => state.auth);
 
   return (
-    <div className={` absolute top-0 left-0 bottom-0 transform transition-transform duration-500 ease-in-out ${open && 'right-12'  } overflow-hidden bg-slate-300 p-4 `}>
+    <div className={` absolute top-0 left-0 bottom-0  ${open && ' right-10 '} overflow-hidden bg-slate-300 p-4 `}>
       <nav className=' flex flex-col gap-5 ml-2'>
         <div className=' flex  justify-between'>
             <div className=' flex flex-col gap-2 '>
