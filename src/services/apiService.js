@@ -20,7 +20,11 @@ export async function signup(data, navigate) {
       ? matchResult[1]
       : "Error message not found";
 
-      const updatedMessage=errorMessage.includes("user already exists with this email id") ?"user already exists with this email":"something went wrong while register to your account"
+    const updatedMessage = errorMessage.includes(
+      "user already exists with this email id"
+    )
+      ? "user already exists with this email"
+      : "something went wrong while register to your account";
     console.log("SIGNUP API ERROR...", updatedMessage);
     toast.error(updatedMessage);
   }
@@ -54,14 +58,14 @@ export async function refreshAccessToken(refreshToken, dispatch) {
     });
     dispatch(setAccessToken(response?.data?.data?.accessToken));
     dispatch(setRefreshToken(response?.data?.data?.refreshToken));
-    result=response?.data?.data?.accessToken;
+    result = response?.data?.data?.accessToken;
   } catch (error) {
     console.log("error in refresh access token verification", error);
   }
   return result;
 }
 
-export async function server_logout(accessToken,navigate) {
+export async function server_logout(accessToken, navigate) {
   const toastId = toast.loading("Loading...");
   try {
     const response = await apiConnector("POST", authurl.logout, {
@@ -69,7 +73,7 @@ export async function server_logout(accessToken,navigate) {
     });
     console.log("response", response);
     toast.success("user logout successfully");
-    navigate("/")
+    navigate("/");
   } catch (error) {
     console.log("error in logout", error);
   }
@@ -95,13 +99,15 @@ export async function server_login(email, password, dispatch, navigate) {
       ? matchResult[1]
       : "Error message not found";
     console.log("Login API ERROR...", errorMessage);
-    const updatedMessage=errorMessage.includes("user doesnot exist") ?"user doesnot exist":"something went wrong while login to your account"
+    const updatedMessage = errorMessage.includes("user doesnot exist")
+      ? "user doesnot exist"
+      : "something went wrong while login to your account";
     toast.error(updatedMessage);
   }
   toast.dismiss(toastId);
 }
 
-export async function updateProfile(formdata, navigate,dispatch) {
+export async function updateProfile(formdata, navigate, dispatch) {
   const toastId = toast.loading("Loading...");
   try {
     const response = await apiConnector(
@@ -118,7 +124,8 @@ export async function updateProfile(formdata, navigate,dispatch) {
     console.log("response", response);
 
     toast.success("profile updated successfully");
-    dispatch(setUser(response?.data?.data.user))
+    dispatch(setUser(response?.data?.data.user));
+    dispatch(setStep(1));
     navigate("/");
   } catch (error) {
     const matchResult = error.request?.response?.match(/Error: (.+)<br>/);
