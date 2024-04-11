@@ -92,7 +92,7 @@ const NavBar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="block p-2 hover:bg-slate-200">
+                  <Link to={"/getStarted"} className="block p-2 hover:bg-slate-200">
                     Update Profile
                   </Link>
                 </li>
