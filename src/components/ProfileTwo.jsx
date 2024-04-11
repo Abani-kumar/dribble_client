@@ -36,7 +36,7 @@ const ProfileTwo = ({ profileDetails, setProfileDetails }) => {
     if (refreshToken) {
       getAccessToken();
     }
-  }, [refreshToken]);
+  }, []);
 
   const profileUpdate = async (e) => {
     e.preventDefault();
